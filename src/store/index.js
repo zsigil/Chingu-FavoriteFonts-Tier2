@@ -16,6 +16,7 @@ export default new Vuex.Store({
     listView: false,
     fonts : [],
     searched: '',
+    selectedFonts: [],
   },
   getters:{
     fonts: state => v => {
@@ -41,6 +42,12 @@ export default new Vuex.Store({
     },
     setSearched(state,payload){
       state.searched = payload
+    },
+    addFont(state, payload){
+      if (!state.selectedFonts.includes(payload)) {
+        state.selectedFonts.push(payload)
+        localStorage.setItem('fontlist', JSON.stringify(state.selectedFonts))
+      }
     }
   },
   actions: {
@@ -62,6 +69,9 @@ export default new Vuex.Store({
     },
     setSearched({commit},payload){
       commit('setSearched', payload)
+    },
+    addFont({commit}, payload){
+      commit('addFont', payload)
     }
   },
   modules: {

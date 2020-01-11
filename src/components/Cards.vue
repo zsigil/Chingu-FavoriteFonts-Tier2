@@ -38,6 +38,6 @@ export default {
 
 <style lang="scss" scoped>
   .cards{
-    margin: 0 40px;
+    margin: 12px 40px;
   }
 </style>

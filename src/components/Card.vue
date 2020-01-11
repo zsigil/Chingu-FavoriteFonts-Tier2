@@ -4,8 +4,10 @@
       <v-col>
         {{fontName}}
       </v-col>
-      <v-col class="text-right">
-        <v-icon color="red">mdi-plus-circle-outline</v-icon>
+      <v-col cols="2" class="text-right">
+        <v-icon
+          @click="addFont(fontName)"
+          color="red">mdi-plus-circle-outline</v-icon>
       </v-col>
     </v-row>
     <v-row  :style="{fontSize:fontSize, fontFamily:fontName}" class="displaytext">
@@ -32,6 +34,11 @@ export default {
     fontSize(){
       return this.$store.state.fontSize
     },
+  },
+  methods:{
+    addFont(font){
+      this.$store.dispatch('addFont', font)
+    }
   }
 }
 </script>
