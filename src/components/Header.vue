@@ -1,21 +1,16 @@
 <template lang="html">
   <div class="mainheader">
-    <v-row>
-      <div class="logo">
+    <v-row justify="space-between" noGutters>
+      <v-col cols="12" md="3" class="logo">
         <router-link tag="div" :to="{ name: 'home'}"><span class="google">Google</span>Fonts</router-link>
-      </div>
-      <v-spacer></v-spacer>
-      <div class="navigationlinks" :class="{mobilenav: isMobile, show: showMobileNav}">
+      </v-col>
+
+      <v-col cols="12" md="5" class="navigationlinks" :class="{mobilenav: isMobile}">
         <router-link :to="{ name: 'home'}">Catalog</router-link>
         <router-link :to="{ name: 'home'}">Featured</router-link>
         <router-link :to="{ name: 'home'}">Articles</router-link>
         <router-link :to="{ name: 'home'}">About</router-link>
-      </div>
-      <v-app-bar-nav-icon
-        v-if="isMobile"
-        @click="showMobileNav=!showMobileNav"
-      >
-      </v-app-bar-nav-icon>
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -40,8 +35,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .mainheader{
+    padding: 16px 30px 10px 40px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 20px;
+  }
   .logo{
-    margin-left: 20px;
     font-size: 1.5rem;
     color: #aaa;
     cursor: pointer;
@@ -57,14 +56,16 @@ export default {
     }
   }
 
+
   .navigationlinks a{
     text-transform: uppercase;
     display: inline-block;
-    padding: 5px;
-    margin: 0 10px;
+    padding: 4px;
+    margin: 0 5px;
     text-decoration: none;
     color: #ccc;
     transition: all 0.4s ease;
+    font-size: 1rem;
 
     &:hover{
       color: #555;
@@ -72,19 +73,18 @@ export default {
     }
   }
 
-  .mobilenav{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top:60px;
-    right: -100px;
-    transition: all 0.8s ease-out;
-    z-index: 10;
-
-    &.show{
-      right:0;
-      top: 60px;
-      transition: all 0.8s ease-out;
-    }
+  .mobilenav a{
+    padding: 5px;
+    margin: 0px;
+    font-size: 0.75rem;
   }
+
+  .navigationlinks{
+    text-align: right;
+  }
+
+  .mobilenav{
+    text-align: left;
+  }
+
 </style>

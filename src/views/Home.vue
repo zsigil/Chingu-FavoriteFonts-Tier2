@@ -17,6 +17,13 @@ export default {
     Header,
     MajorNavigation,
     Cards
-  }
+  },
+  computed:{
+
+  },
 }
 </script>
+
+<style lang="scss">
+
+</style>

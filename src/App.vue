@@ -8,7 +8,7 @@
       </v-container>
     </v-content>
 
-    <v-footer app>
+    <v-footer app :dark="dark">
       <v-col class="text-center">
         <div class="footer__item">
           coded by IldikoZsigmond
@@ -37,6 +37,11 @@ export default {
 
   components: {
   },
+  computed:{
+    dark(){
+      return this.$store.state.darkmode;
+    }
+  },
 
   data: () => ({
     //
@@ -45,6 +50,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+  padding: 0;
+}
 .footer__item{
   @media(min-width:960px){
     display: inline-block;
