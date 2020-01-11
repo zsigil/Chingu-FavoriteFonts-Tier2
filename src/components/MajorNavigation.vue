@@ -79,7 +79,8 @@
         >mdi-apps</v-icon>
       </v-col>
       <v-col cols="2" md="1">
-        <v-icon>mdi-replay</v-icon>
+        <v-icon
+         @click="resetPage">mdi-replay</v-icon>
       </v-col>
     </v-row>
   </div>
@@ -101,8 +102,14 @@ export default {
       }else{
         this.$vuetify.theme.dark = false;
       }
-
     },
+    resetPage(){
+      this.$store.dispatch('setListView', false);
+      this.$store.dispatch('setFontSize', '20px');
+      this.setDark('false');
+      this.searchtext = '';
+      this.displaytext = '';
+    }
   },
   computed:{
     displaytext: {
