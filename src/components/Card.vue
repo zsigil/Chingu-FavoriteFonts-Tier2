@@ -1,6 +1,19 @@
 <template lang="html">
-  <div class="fontcard" :style="{fontSize:fontSize}">
-    {{displaytext}}
+  <div class="fontcard">
+    <v-row noGutters justify="space-between" class="cardheader">
+      <v-col>
+        Roboto
+      </v-col>
+      <v-col class="text-right">
+        <v-icon color="red">mdi-plus-circle-outline</v-icon>
+      </v-col>
+    </v-row>
+    <v-row  :style="{fontSize:fontSize}" class="displaytext" align="center">
+      <v-col>
+        {{displaytext}}
+      </v-col>
+    </v-row>
+
   </div>
 </template>
 
@@ -11,7 +24,7 @@ export default {
       if (this.$store.state.displaytext.length>0) {
         return this.$store.state.displaytext
       }else{
-        return 'Basic text for lazy writers.'
+        return 'Then came the night for the first falling star.'
       }
     },
     fontSize(){
@@ -22,5 +35,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fontcard {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid black;
+  min-height: 150px;
+}
 
+.cardheader{
+  margin-top: 10px;
+}
+
+.displaytext{
+  margin-top: 20px;
+  word-wrap: break-word;
+}
 </style>

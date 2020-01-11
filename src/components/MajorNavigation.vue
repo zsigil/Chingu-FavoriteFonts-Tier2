@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="majornavigation">
-    <v-row noGutters align="center" justify="space-between">
+    <v-row noGutters align="center" justify="space-around">
       <v-col cols="6" md="3" class="searchfonts">
         <input
           placeholder="Search fonts"
@@ -61,11 +61,17 @@
         </v-icon>
       </v-col>
       <v-col cols="4" md="1" class="d-none d-md-block">
-        <v-icon v-if="true">mdi-view-list</v-icon>
-        <v-icon v-else>mdi-apps</v-icon>
+        <v-icon
+          v-if="!$store.state.listView"
+          @click="$store.dispatch('setListView', true)"
+        >mdi-view-list</v-icon>
+        <v-icon
+          v-else
+          @click="$store.dispatch('setListView', false)"
+        >mdi-apps</v-icon>
       </v-col>
-      <v-col cols="2" md="2">
-        <v-icon>mdi-rotate-right</v-icon>
+      <v-col cols="2" md="1">
+        <v-icon>mdi-replay</v-icon>
       </v-col>
     </v-row>
   </div>
@@ -128,6 +134,10 @@ export default {
   }
 
   input{
+    @media(max-width:600px){
+      width:100%;
+    }
+
     @media(min-width:960px){
       width:100%;
     }

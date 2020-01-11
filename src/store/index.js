@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     displaytext: '',
-    fontSize: '16px'
+    fontSize: '16px',
+    listView: false,
   },
   mutations: {
     setDisplayText(state, payload){
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     setFontSize(state, payload){
       state.fontSize = payload;
     },
+    setListView(state, payload){
+      state.listView = payload;
+    },
   },
   actions: {
     setDisplayText({commit}, payload){
@@ -22,6 +26,9 @@ export default new Vuex.Store({
     },
     setFontSize({commit}, payload){
       commit('setFontSize', payload)
+    },
+    setListView({commit}, payload){
+      commit('setListView', payload)
     },
   },
   modules: {
