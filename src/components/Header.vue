@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="mainheader">
     <v-row justify="space-between" noGutters>
-      <v-col cols="12" md="3" class="logo">
+      <v-col cols="12" md="3" class="logo" :class="{dark:$vuetify.theme.dark}">
         <router-link tag="div" :to="{ name: 'home'}"><span class="google">Google</span>Fonts</router-link>
       </v-col>
 
-      <v-col cols="12" md="5" class="navigationlinks" :class="{mobilenav: isMobile}">
+      <v-col cols="12" md="5" class="navigationlinks" :class="{mobilenav: isMobile, dark:$vuetify.theme.dark}">
         <router-link :to="{ name: 'home'}">Catalog</router-link>
         <router-link :to="{ name: 'home'}">Featured</router-link>
         <router-link :to="{ name: 'home'}">Articles</router-link>
@@ -54,6 +54,11 @@ export default {
       color: #111;
       transition: all 0.4s ease;
     }
+
+    &.dark:hover{
+      color: #eee;
+      transition: all 0.4s ease;
+    }
   }
 
 
@@ -71,6 +76,11 @@ export default {
       color: #555;
       transition: all 0.4s ease;
     }
+  }
+
+  .navigationlinks.dark a:hover{
+    color: #fff;
+    transition: all 0.4s ease;
   }
 
   .mobilenav a{

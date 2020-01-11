@@ -5,6 +5,7 @@
         <input
           placeholder="Search fonts"
           v-model="searchtext"
+          :class="{dark:$vuetify.theme.dark}"
         />
       </v-col>
 
@@ -26,23 +27,27 @@
           min-width="80"
           offset-y
         >
-        <template v-slot:activator="{ on }">
-          <div class="selectedSize" v-on="on">
-            {{selectedSize}}
+          <template v-slot:activator="{ on }">
+            <div class="selectedSize" v-on="on">
+              {{selectedSize}}
+            </div>
+          </template>
+          <div>
+            <v-card class="sizelist">
+              <div
+                v-for="(size, index) in fontsizes"
+                :key="index"
+                @click="$store.dispatch('setFontSize', size)"
+              >
+                <div >
+                  <v-icon v-if="$store.state.fontSize===size"
+                  color="#fff"
+                  >mdi-check</v-icon>
+                  {{ size }}
+                </div>
+              </div>
+            </v-card>
           </div>
-        </template>
-          <v-list class="text-right">
-            <v-list-item
-              v-for="(size, index) in fontsizes"
-              :key="index"
-              @click="$store.dispatch('setFontSize', size)"
-            >
-              <v-list-item-title>
-                <v-icon v-if="$store.state.fontSize===size" color="green">mdi-check</v-icon>
-                {{ size }}
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
         </v-menu>
 
 
@@ -143,13 +148,25 @@ export default {
     }
   }
 
+  input.dark::placeholder{
+    color: #fff;
+  }
+
   .selectedSize{
     &:hover{
       cursor: pointer;
     }
   }
+}
 
+.v-card.sizelist.v-card.sizelist{
+  padding: 5px;
+  text-align: right;
+  border-radius: 10px;
 
-
+  &.theme--light{
+    background-color: #bbb;
+    color: #fff;
+  }
 }
 </style>

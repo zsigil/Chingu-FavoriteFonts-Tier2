@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="fontcard">
+  <div class="fontcard" :class="{dark:$vuetify.theme.dark}">
     <v-row noGutters justify="space-between" class="cardheader">
       <v-col>
         Roboto
@@ -8,7 +8,7 @@
         <v-icon color="red">mdi-plus-circle-outline</v-icon>
       </v-col>
     </v-row>
-    <v-row  :style="{fontSize:fontSize}" class="displaytext" align="center">
+    <v-row  :style="{fontSize:fontSize}" class="displaytext">
       <v-col>
         {{displaytext}}
       </v-col>
@@ -41,6 +41,10 @@ export default {
   margin-right: auto;
   border-top: 1px solid black;
   min-height: 150px;
+
+  &.dark{
+    border-color: #fff;
+  }
 }
 
 .cardheader{
