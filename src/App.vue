@@ -8,7 +8,7 @@
       </v-container>
     </v-content>
 
-    <v-footer app :dark="dark">
+    <v-footer app :dark="dark" padless>
       <v-col class="text-center">
         <div class="footer__item">
           coded by IldikoZsigmond

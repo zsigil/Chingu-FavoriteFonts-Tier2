@@ -13,6 +13,7 @@
         <input
           placeholder="Type something"
           v-model="displaytext"
+          :class="{dark:$vuetify.theme.dark}"
         />
       </v-col>
 
@@ -25,7 +26,7 @@
           close-on-click
           close-on-content-click
           min-width="80"
-          offset-y
+          top
         >
           <template v-slot:activator="{ on }">
             <div class="selectedSize" v-on="on">
@@ -39,11 +40,13 @@
                 :key="index"
                 @click="$store.dispatch('setFontSize', size)"
               >
-                <div >
-                  <v-icon v-if="$store.state.fontSize===size"
+                <div>
+                  <v-icon small v-if="$store.state.fontSize===size"
                   color="#fff"
                   >mdi-check</v-icon>
-                  {{ size }}
+                  <div class="sizetext">
+                    {{ size }}
+                  </div>
                 </div>
               </div>
             </v-card>
@@ -87,7 +90,7 @@ export default {
   data(){
     return{
       searchtext: '',
-      fontsizes: ['16px', '24px', '32px', '40px'],
+      fontsizes: ['20px', '24px', '32px', '40px'],
       openSelectMenu: false,
     }
   },
@@ -146,10 +149,11 @@ export default {
     @media(min-width:960px){
       width:100%;
     }
-  }
 
-  input.dark::placeholder{
-    color: #fff;
+    &.dark::placeholder{
+      color: #fff;
+    }
+
   }
 
   .selectedSize{
@@ -161,12 +165,19 @@ export default {
 
 .v-card.sizelist.v-card.sizelist{
   padding: 5px;
-  text-align: right;
   border-radius: 10px;
+  min-width: 110px;
+  text-align: right;
 
   &.theme--light{
-    background-color: #bbb;
+    background-color: #aaa;
     color: #fff;
+  }
+
+  .sizetext{
+    display: inline-block;
+    margin-right: 40px;
+    margin-left: 5px;
   }
 }
 </style>

@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     displaytext: '',
-    fontSize: '16px',
+    fontSize: '20px',
     listView: false,
   },
   mutations: {
