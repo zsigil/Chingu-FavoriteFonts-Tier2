@@ -22,7 +22,8 @@ export default {
   computed:{
     displaytext(){
       if (this.$store.state.displaytext.length>0) {
-        return this.$store.state.displaytext
+        //maxlength 80 char
+        return this.$store.state.displaytext.substr(0,80)
       }else{
         return 'Then came the night for the first falling star.'
       }
