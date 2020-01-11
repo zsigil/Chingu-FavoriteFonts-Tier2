@@ -2,7 +2,7 @@
   <div class="fontcard" :class="{dark:$vuetify.theme.dark}">
     <v-row noGutters justify="space-between" class="cardheader">
       <v-col>
-        Roboto
+        {{fontName}}
       </v-col>
       <v-col class="text-right">
         <v-icon color="red">mdi-plus-circle-outline</v-icon>
@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  props:['fontName'],
   computed:{
     displaytext(){
       if (this.$store.state.displaytext.length>0) {
@@ -30,7 +31,7 @@ export default {
     },
     fontSize(){
       return this.$store.state.fontSize
-    }
+    },
   }
 }
 </script>

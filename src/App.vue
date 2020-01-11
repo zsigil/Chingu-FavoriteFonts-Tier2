@@ -75,6 +75,7 @@ export default {
   }),
   mounted(){
     this.showScrollButton();
+    this.$store.dispatch('loadFonts');
   }
 };
 </script>

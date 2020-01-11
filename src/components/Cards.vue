@@ -1,12 +1,12 @@
 <template lang="html">
-  <div class="cards">
+  <div v-if="fonts.length>0" class="cards">
     <v-row justify="center">
-      <v-col v-for="i in 12" :key="i"
+      <v-col v-for="(font,i) in fonts" :key="i"
         cols="12"
         :lg="calculatedcols ? calculatedcols : 3"
         :md="calculatedcols ? calculatedcols : 4"
       >
-          <Card />
+          <Card :fontName="font.family" />
       </v-col>
     </v-row>
   </div>
@@ -25,7 +25,13 @@ export default {
       }else{
         return false
       }
+    },
+    fonts(){
+      return this.$store.state.fonts
     }
+  },
+  mounted(){
+
   }
 }
 </script>
