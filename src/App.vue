@@ -27,6 +27,14 @@
         </div>
       </v-col>
     </v-footer>
+
+    <div v-if="showButton" class="scrollButton">
+      <v-icon
+         @click="scrollUp"
+         :color="scrollButtonColor"
+      >mdi-arrow-up-circle
+      </v-icon>
+    </div>
   </v-app>
 </template>
 
@@ -42,10 +50,32 @@ export default {
       return this.$store.state.darkmode;
     }
   },
-
+  methods:{
+    showScrollButton(){
+      window.onscroll = () => {
+        if(document.documentElement.scrollTop < 230){
+          this.showButton = false;
+        }
+        else{
+          this.showButton = true;
+        }
+      }
+    },
+    scrollUp(){
+      this.scrollButtonColor = 'black';
+      this.$vuetify.goTo(0, {duration:800, easing: 'easeInOutCubic'});
+      setTimeout(()=>{
+        this.scrollButtonColor = 'grey';
+      }, 800)
+    }
+  },
   data: () => ({
-    //
+    showButton: false,
+    scrollButtonColor: 'grey',
   }),
+  mounted(){
+    this.showScrollButton();
+  }
 };
 </script>
 
@@ -58,5 +88,12 @@ export default {
     display: inline-block;
     padding: 0 3px;
   }
+}
+
+.scrollButton{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
 }
 </style>
