@@ -27,7 +27,7 @@ export default {
       }
     },
     fonts(){
-      return this.$store.state.fonts
+      return this.$store.getters.fonts(this.$store.state.searched)
     }
   },
   mounted(){

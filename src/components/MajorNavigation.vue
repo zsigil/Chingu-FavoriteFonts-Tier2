@@ -90,7 +90,6 @@
 export default {
   data(){
     return{
-      searchtext: '',
       fontsizes: ['20px', '24px', '32px', '40px'],
       openSelectMenu: false,
     }
@@ -118,6 +117,14 @@ export default {
       },
       set: function(v){
         this.$store.dispatch('setDisplayText', v);
+      }
+    },
+    searchtext: {
+      get: function(){
+        return this.$store.state.searched;
+      },
+      set: function(v){
+        this.$store.dispatch('setSearched', v);
       }
     },
     selectedSize: {

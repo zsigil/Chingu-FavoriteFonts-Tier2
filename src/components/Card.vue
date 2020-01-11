@@ -8,7 +8,7 @@
         <v-icon color="red">mdi-plus-circle-outline</v-icon>
       </v-col>
     </v-row>
-    <v-row  :style="{fontSize:fontSize}" class="displaytext">
+    <v-row  :style="{fontSize:fontSize, fontFamily:fontName}" class="displaytext">
       <v-col>
         {{displaytext}}
       </v-col>
@@ -35,8 +35,8 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
+
 .fontcard {
   width: 90%;
   margin-left: auto;

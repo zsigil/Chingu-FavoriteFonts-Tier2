@@ -15,6 +15,16 @@ export default new Vuex.Store({
     fontSize: '20px',
     listView: false,
     fonts : [],
+    searched: '',
+  },
+  getters:{
+    fonts: state => v => {
+      if (v.length>0) {
+        return state.fonts.filter(f=>f.family.toLowerCase().includes(state.searched.toLowerCase()))
+      }else{
+        return state.fonts
+      }
+    }
   },
   mutations: {
     setDisplayText(state, payload){
@@ -28,6 +38,9 @@ export default new Vuex.Store({
     },
     setFonts(state, payload){
       state.fonts = payload;
+    },
+    setSearched(state,payload){
+      state.searched = payload
     }
   },
   actions: {
@@ -46,6 +59,9 @@ export default new Vuex.Store({
       .then(res=>{
         commit('setFonts', res.data.items)
       })
+    },
+    setSearched({commit},payload){
+      commit('setSearched', payload)
     }
   },
   modules: {
