@@ -26,9 +26,6 @@ export default new Vuex.Store({
         return state.fonts
       }
     },
-    fontFileByName: state => name => {
-      return state.fonts.filter(f=>f.family===name)[0].files.regular
-    }
   },
   mutations: {
     setDisplayText(state, payload){

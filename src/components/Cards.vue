@@ -6,7 +6,7 @@
         :lg="calculatedcols ? calculatedcols : 3"
         :md="calculatedcols ? calculatedcols : 4"
       >
-          <Card :fontName="font.family" />
+          <Card :font="font" />
       </v-col>
     </v-row>
   </div>

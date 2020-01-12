@@ -2,15 +2,15 @@
   <div class="fontcard" :class="{dark:$vuetify.theme.dark}">
     <v-row noGutters justify="space-between" class="cardheader">
       <v-col>
-        {{fontName}}
+        {{font.family}}
       </v-col>
       <v-col cols="2" class="text-right">
         <v-icon
-          @click="addFont(fontName)"
+          @click="addFont(font)"
           color="red">mdi-plus-circle-outline</v-icon>
       </v-col>
     </v-row>
-    <v-row  :style="{fontSize:fontSize, fontFamily:fontName}" class="displaytext">
+    <v-row  :style="{fontSize:fontSize, fontFamily:`${font.family}, sans-serif`}" class="displaytext">
       <v-col>
         {{displaytext}}
       </v-col>
@@ -23,7 +23,7 @@
 
 
 export default {
-  props:['fontName'],
+  props:['font'],
   computed:{
     displaytext(){
       if (this.$store.state.displaytext.length>0) {
@@ -37,16 +37,20 @@ export default {
       return this.$store.state.fontSize
     },
     stylesheetSrc(){
-      let name = this.fontName
-      if (this.fontName.split(' ').length>0) {
-        name = this.fontName.split(' ').join('+')
+      let name = this.font.family
+      let variant = this.font.variants.includes("regular") ? "regular" : this.font.variants[0];
+      if (this.font.family.split(' ').length>0) {
+        name = this.font.family.split(' ').join('+')
       }
-      return `https://fonts.googleapis.com/css?family=${name}`
+      if (variant=="regular") {
+        return `https://fonts.googleapis.com/css?family=${name}&display=swap`
+      }
+      else return `https://fonts.googleapis.com/css?family=${name}:${variant}&display=swap`
     }
   },
   methods:{
     addFont(font){
-      this.$store.dispatch('addFont', font)
+      this.$store.dispatch('addFont', font.family)
     }
   },
   head:{
@@ -56,6 +60,7 @@ export default {
         rel: 'stylesheet',
         href: this.stylesheetSrc,
         undo: false,
+        type: 'text/css',
         }
       ]
     }
