@@ -20,6 +20,8 @@
 </template>
 
 <script>
+
+
 export default {
   props:['fontName'],
   computed:{
@@ -34,10 +36,28 @@ export default {
     fontSize(){
       return this.$store.state.fontSize
     },
+    stylesheetSrc(){
+      let name = this.fontName
+      if (this.fontName.split(' ').length>0) {
+        name = this.fontName.split(' ').join('+')
+      }
+      return `https://fonts.googleapis.com/css?family=${name}`
+    }
   },
   methods:{
     addFont(font){
       this.$store.dispatch('addFont', font)
+    }
+  },
+  head:{
+    link(){
+      return [
+        {
+        rel: 'stylesheet',
+        href: this.stylesheetSrc,
+        undo: false,
+        }
+      ]
     }
   }
 }
