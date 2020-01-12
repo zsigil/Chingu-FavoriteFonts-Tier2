@@ -10,9 +10,9 @@
           color="red">mdi-plus-circle-outline</v-icon>
       </v-col>
     </v-row>
-    <v-row  :style="{fontSize:fontSize, fontFamily:`${font.family}, sans-serif`}" class="displaytext">
+    <v-row :style="{fontSize:fontSize, fontFamily:`${font.family}, sans-serif`}" class="displaytext">
       <v-col>
-        {{displaytext}}
+        <span v-if="timeToDisplay"></span>{{displaytext}}
       </v-col>
     </v-row>
 
@@ -24,6 +24,11 @@
 
 export default {
   props:['font'],
+  data(){
+    return{
+      timeToDisplay: false
+    }
+  },
   computed:{
     displaytext(){
       if (this.$store.state.displaytext.length>0) {
@@ -64,6 +69,11 @@ export default {
         }
       ]
     }
+  },
+  created: function () {
+    this.$on('okHead', function () {
+      this.timeToDisplay = true;
+    });
   }
 }
 </script>

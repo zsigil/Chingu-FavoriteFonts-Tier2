@@ -76,6 +76,7 @@ export default {
   mounted(){
     this.showScrollButton();
     this.$store.dispatch('loadFonts');
+    this.$store.dispatch('checkLocalStorage');
   }
 };
 </script>

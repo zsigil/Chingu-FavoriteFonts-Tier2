@@ -17,6 +17,8 @@ export default new Vuex.Store({
     fonts : [],
     searched: '',
     selectedFonts: [],
+    loading: true,
+    errors: '',
   },
   getters:{
     fonts: state => v => {
@@ -48,6 +50,9 @@ export default new Vuex.Store({
         state.selectedFonts.push(payload)
         localStorage.setItem('fontlist', JSON.stringify(state.selectedFonts))
       }
+    },
+    setSelectedFonts(state,payload){
+      state.selectedFonts = payload;
     }
   },
   actions: {
@@ -60,11 +65,16 @@ export default new Vuex.Store({
     setListView({commit}, payload){
       commit('setListView', payload)
     },
-    loadFonts({commit}){
+    loadFonts({commit, state}){
       const popularityurl = APIURL + "&sort=popularity"
       axios.get(popularityurl)
       .then(res=>{
         commit('setFonts', res.data.items)
+        state.loading = false;
+      })
+      .catch(err=>{
+        state.errors = err;
+        state.loading = false;
       })
     },
     setSearched({commit},payload){
@@ -72,6 +82,10 @@ export default new Vuex.Store({
     },
     addFont({commit}, payload){
       commit('addFont', payload)
+    },
+    checkLocalStorage({commit}){
+      const strg = localStorage.getItem('fontlist')
+      commit('setSelectedFonts', JSON.parse(strg))
     }
   },
   modules: {
