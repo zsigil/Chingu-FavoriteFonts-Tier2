@@ -10,7 +10,7 @@
           color="red">mdi-plus-circle-outline</v-icon>
       </v-col>
     </v-row>
-    <v-row :style="{fontSize:fontSize, fontFamily:`${font.family}, sans-serif`}" class="displaytext">
+    <v-row :style="{fontSize:fontSize, fontFamily:`${font.family}`}" class="displaytext">
       <v-col>
         <span v-if="timeToDisplay">{{displaytext}}</span>
       </v-col>
