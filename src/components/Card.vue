@@ -12,7 +12,7 @@
     </v-row>
     <v-row :style="{fontSize:fontSize, fontFamily:`${font.family}, sans-serif`}" class="displaytext">
       <v-col>
-        <span v-if="timeToDisplay"></span>{{displaytext}}
+        <span v-if="timeToDisplay">{{displaytext}}</span>
       </v-col>
     </v-row>
 
@@ -26,7 +26,7 @@ export default {
   props:['font'],
   data(){
     return{
-      timeToDisplay: false
+      timeToDisplay :false,
     }
   },
   computed:{

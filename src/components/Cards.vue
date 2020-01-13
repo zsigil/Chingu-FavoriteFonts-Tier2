@@ -7,7 +7,9 @@
           :lg="calculatedcols ? calculatedcols : 3"
           :md="calculatedcols ? calculatedcols : 4"
         >
-            <Card :font="font" />
+            <v-lazy>
+              <Card :font="font" />
+            </v-lazy>
         </v-col>
       </v-row>
     </div>
