@@ -36,6 +36,7 @@ Fonts are sorted by popularity on page load.
 
 #### Style
 * Design is fully responsive
+* Back to top button allows smooth scrolling back to top
 
 #### Navigation
 * Although this project includes only one page, links are created for navigation (all link back to this main page)
