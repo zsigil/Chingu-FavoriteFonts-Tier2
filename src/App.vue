@@ -4,7 +4,10 @@
 
     <v-content>
       <v-container fluid>
-        <router-view></router-view>
+        <Header />
+        <transition name="fade" mode="out-in" appear>
+          <router-view></router-view>
+        </transition>
       </v-container>
     </v-content>
 
@@ -39,11 +42,13 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'App',
 
   components: {
+    Header,
   },
   computed:{
     dark(){
@@ -84,6 +89,7 @@ export default {
 <style lang="scss" scoped>
 .container{
   padding: 0;
+  max-width: 1500px;
 }
 .footer__item{
   @media(min-width:960px){
@@ -97,5 +103,14 @@ export default {
   bottom: 10px;
   right: 10px;
   z-index: 10;
+}
+
+.fade{
+  &-enter{
+    opacity: 0
+  }
+  &-enter-active{
+    transition: all 0.5s ease;
+  }
 }
 </style>

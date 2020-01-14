@@ -2,13 +2,13 @@
   <div class="mainheader">
     <v-row justify="space-between" noGutters>
       <v-col cols="12" md="3" class="logo" :class="{dark:$vuetify.theme.dark}">
-        <router-link tag="div" :to="{ name: 'home'}"><span class="google">Google</span>Fonts</router-link>
+        <router-link exact tag="span" :to="{ name: 'home'}"><span class="google">Google</span>Fonts</router-link>
       </v-col>
 
       <v-col cols="12" md="5" class="navigationlinks" :class="{mobilenav: isMobile, dark:$vuetify.theme.dark}">
-        <router-link :to="{ name: 'home'}">Catalog</router-link>
-        <router-link :to="{ name: 'home'}">Featured</router-link>
-        <router-link :to="{ name: 'home'}">Articles</router-link>
+        <router-link :to="{ name: 'catalog'}">Catalog</router-link>
+        <router-link :to="{ name: 'featured'}">Featured</router-link>
+        <router-link :to="{ name: 'articles'}">Articles</router-link>
         <router-link :to="{ name: 'about'}">About</router-link>
       </v-col>
     </v-row>
@@ -96,5 +96,19 @@ export default {
   .mobilenav{
     text-align: left;
   }
+
+  .navigationlinks{
+    .router-link-active{
+      border-bottom: 1px solid black;
+    }
+
+    &.dark{
+      .router-link-active{
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+
+
 
 </style>

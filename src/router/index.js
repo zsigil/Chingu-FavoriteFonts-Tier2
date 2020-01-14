@@ -16,6 +16,21 @@ const routes = [
     component: ()=>import('@/views/About.vue'),
   },
   {
+    path: '/featured',
+    name: 'featured',
+    redirect: '/',
+  },
+  {
+    path: '/catalog',
+    name: 'catalog',
+    redirect: '/',
+  },
+  {
+    path: '/articles',
+    name: 'articles',
+    redirect: '/',
+  },
+  {
     path: '*',
     redirect: '/',
   },
