@@ -9,7 +9,7 @@
         <router-link :to="{ name: 'home'}">Catalog</router-link>
         <router-link :to="{ name: 'home'}">Featured</router-link>
         <router-link :to="{ name: 'home'}">Articles</router-link>
-        <router-link :to="{ name: 'home'}">About</router-link>
+        <router-link :to="{ name: 'about'}">About</router-link>
       </v-col>
     </v-row>
   </div>
