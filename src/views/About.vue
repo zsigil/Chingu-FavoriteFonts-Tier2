@@ -10,7 +10,7 @@
           </p>
           <p>
             I have a degree in pharmacology, but coding always interested me, so I decided it was time to give it a chance.
-            At the moment I code in my free time (next to my part-time job as a pharmacist), working on my portfolio.
+            At the moment I code in my free time (besides my part-time job as a pharmacist), working on my portfolio.
           </p>
         </section>
         <section>

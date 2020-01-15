@@ -39,10 +39,10 @@ Fonts are sorted by popularity on page load.
 * Back to top button allows smooth scrolling back to top
 
 #### Navigation
-* Although this project includes only one page, links are created for navigation (all link back to this main page)
+* In the header and footer all links are redirected to the main page, except for the 'ABOUT' link and the link in the footer (both link to the page 'ABOUT').
+The 'ABOUT' page was originally not required for this project.
 
-
->Please consider using Google Web Font Loader instead of injecting font stylesheets for cross-browser compatibility (project description probibited using this loader)
+* Unknown routes are redirected to the main page.
 
 
 ## Tech and Dependencies
@@ -54,6 +54,8 @@ Fonts are sorted by popularity on page load.
   * axios
   * vue-head
 
+
+>Please consider using Google Web Font Loader instead of injecting font stylesheets for cross-browser compatibility (project description prohibited using this loader)
 
 ## Project setup
 *APIKEY (for Google Fonts Developer API) is to be provided(exported) from src/secretkeys.js file*
