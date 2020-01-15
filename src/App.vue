@@ -14,7 +14,7 @@
     <v-footer app :dark="dark" padless>
       <v-col class="text-center">
         <div class="footer__item">
-          coded by IldikoZsigmond
+          coded by <router-link :to="{name: 'about'}">IldikoZsigmond</router-link>
         </div>
         <div class="footer__item d-none d-md-inline-block">
           |
@@ -78,10 +78,12 @@ export default {
     showButton: false,
     scrollButtonColor: 'grey',
   }),
-  mounted(){
-    this.showScrollButton();
+  created(){
     this.$store.dispatch('loadFonts');
     this.$store.dispatch('checkLocalStorage');
+  },
+  mounted(){
+    this.showScrollButton();
   }
 };
 </script>
@@ -92,6 +94,11 @@ export default {
   max-width: 1500px;
 }
 .footer__item{
+
+  a{
+    text-decoration: none;
+  }
+
   @media(min-width:960px){
     display: inline-block;
     padding: 0 3px;
@@ -110,7 +117,7 @@ export default {
     opacity: 0
   }
   &-enter-active{
-    transition: all 0.5s ease;
+    transition: all 1.3s ease;
   }
 }
 </style>
