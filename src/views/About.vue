@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="about">
+  <div class="about" :class="{dark:$vuetify.theme.dark}">
     <v-row justify="center">
       <v-col cols="11" sm="10" md="8">
         <h1 class="text-center">About me</h1>
@@ -19,7 +19,8 @@
             After a really short encounter with C++, I found Python - Django was next.  I took courses online (Udemy, Coursera, edX), followed tutorials on YouTube, and I really liked it.
           </p>
           <p>
-            In Hungary, to be a freelancer programmer officially ( basically for tax reasons ), you need a degree in this field. There are some official courses available for this (No need for bachelor/master degree, but still). So I took this 10-month course and found that it gave me basically no knowledge, no experience but only a paper. And of course, they took my money :D
+            In Hungary, to be a freelancer programmer officially ( basically for tax reasons ), you need a degree in this field. There are some official courses available for this (no need for bachelor/master degree, but still).
+            So I took this 10-month course and found that it gave me basically no knowledge, no experience but only a paper. And of course, they took my money <v-icon>mdi-emoticon-angry-outline</v-icon>
           </p>
           <p>
             A family member (a PHP developer) suggested learning Vue, and I absolutely loved it! It felt good to make a page alive.
@@ -88,6 +89,12 @@ a{
 
   &:hover{
     color: midnightblue;
+  }
+}
+
+.dark a {
+  &:hover{
+    color: skyblue;
   }
 }
 
