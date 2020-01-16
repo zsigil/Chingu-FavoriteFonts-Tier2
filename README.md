@@ -53,6 +53,7 @@ The 'ABOUT' page was originally not required for this project.
   * Vuetify
   * axios
   * vue-head
+  * gsap (for animating progress)
 
 
 >Please consider using Google Web Font Loader instead of injecting font stylesheets for cross-browser compatibility (project description prohibited using this loader)

@@ -14,21 +14,19 @@
       </v-row>
     </div>
     <div v-if="$store.state.loading" class="loadingprogress">
-      <v-progress-circular
-         indeterminate
-         color="primary"
-         :width="7"
-        :size="80"
-       ></v-progress-circular>
+       <Progress />
     </div>
   </div>
 </template>
 
 <script>
 import Card from '@/components/Card.vue'
+import Progress from '@/components/Progress.vue'
+
 export default {
   components:{
     Card,
+    Progress,
   },
   computed:{
     calculatedcols(){
@@ -42,9 +40,6 @@ export default {
       return this.$store.getters.fonts(this.$store.state.searched)
     }
   },
-  mounted(){
-
-  }
 }
 </script>
 
@@ -55,6 +50,6 @@ export default {
 
   .loadingprogress{
     text-align: center;
-    margin-top: 20vh;
+    margin-top: 10vh;
   }
 </style>
