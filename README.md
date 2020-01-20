@@ -54,6 +54,7 @@ The 'ABOUT' page was originally not required for this project.
   * axios
   * vue-head
   * gsap (for animating progress)
+  * intersection-observer (v-lazy needs polyfill in IE and Safari)
 
 
 >Please consider using Google Web Font Loader instead of injecting font stylesheets for cross-browser compatibility (project description prohibited using this loader)
