@@ -1,4 +1,8 @@
-require('intersection-observer')
+// require('intersection-observer')
+
+import IntersectionObserver from 'intersection-observer'
+Vue.use(IntersectionObserver)
+
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -9,7 +13,10 @@ import vuetify from './plugins/vuetify';
 import VueHead from 'vue-head'
 Vue.use(VueHead)
 
-IntersectionObserver.prototype.POLL_INTERVAL = 100;
+import browserDetect from "vue-browser-detect-plugin";
+Vue.use(browserDetect);
+
+
 Vue.config.productionTip = false
 
 new Vue({

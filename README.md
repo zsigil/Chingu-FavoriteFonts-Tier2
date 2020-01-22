@@ -55,7 +55,9 @@ The 'ABOUT' page was originally not required for this project.
   * vue-head
   * gsap (for animating progress)
   * intersection-observer (v-lazy needs polyfill in IE and Safari)
+  * vue-browser-detect-plugin (for detecting IE9, IE10, IE11, Safari9)
 
+>This application might be incompatible with some IE versions(9,10,11)/Safari9.(extreme slowness, scrolling issues, loading issues). If using these browsers, a pop-up/sheet will suggest using Chrome/Firefox.
 
 >Please consider using Google Web Font Loader instead of injecting font stylesheets for cross-browser compatibility (project description prohibited using this loader)
 

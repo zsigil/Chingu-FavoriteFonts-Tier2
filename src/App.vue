@@ -11,6 +11,8 @@
       </v-container>
     </v-content>
 
+    <WrongBrowser v-if="wrongBrowser" />
+
     <v-footer app :dark="dark" padless>
       <v-col class="text-center">
         <div class="footer__item">
@@ -43,12 +45,14 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import WrongBrowser from '@/components/WrongBrowser.vue'
 
 export default {
   name: 'App',
 
   components: {
     Header,
+    WrongBrowser,
   },
   computed:{
     dark(){
@@ -68,7 +72,11 @@ export default {
     },
     scrollUp(){
       this.scrollButtonColor = 'black';
-      this.$vuetify.goTo(0, {duration:800, easing: 'easeInOutCubic'});
+      if (this.wrongBrowser) {
+        window.scrollTo(0,0)
+      }else{
+        this.$vuetify.goTo(0, {duration:800, easing: 'easeInOutCubic'});
+      }
       setTimeout(()=>{
         this.scrollButtonColor = 'grey';
       }, 800)
@@ -77,6 +85,7 @@ export default {
   data: () => ({
     showButton: false,
     scrollButtonColor: 'grey',
+    wrongBrowser: false,
   }),
   created(){
     this.$store.dispatch('loadFonts');
@@ -84,6 +93,19 @@ export default {
   },
   mounted(){
     this.showScrollButton();
+    
+    if (this.$browserDetect.isIE) {
+      if (this.$browserDetect.meta.version == 9 || this.$browserDetect.meta.version == 10 || this.$browserDetect.meta.version == 11) {
+        this.wrongBrowser = true
+        alert('Please consider using Chrome or Firefox for full user experience')
+      }
+    }
+    if (this.$browserDetect.isSafari) {
+      if (this.$browserDetect.meta.version == 9) {
+        this.wrongBrowser = true
+        alert('Please consider using Chrome or Firefox for full user experience')
+      }
+    }
   }
 };
 </script>
