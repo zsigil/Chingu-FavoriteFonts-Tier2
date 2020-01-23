@@ -85,7 +85,9 @@ export default new Vuex.Store({
     },
     checkLocalStorage({commit}){
       const strg = localStorage.getItem('fontlist')
-      commit('setSelectedFonts', JSON.parse(strg))
+      if (strg!==null) {
+        commit('setSelectedFonts', JSON.parse(strg))
+      }
     }
   },
   modules: {
