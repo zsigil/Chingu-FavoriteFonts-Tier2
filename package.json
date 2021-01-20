@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.19.1",
     "core-js": "^3.4.4",
-    "gsap": "^3.0.5",
+    "gsap": "^3.6.0",
     "intersection-observer": "^0.7.0",
     "vue": "^2.6.10",
     "vue-browser-detect-plugin": "^0.1.5",
